@@ -11,4 +11,4 @@ The `Account` class stores the data for one budget category.  This class impleme
 
 ![Account UML Diagram](img/accountUML.png)
 
-    - (10%) Implement the `Account` class.  Prove that your class is correct by instantiating an `Account` object in your project `start()` method and outputting the result of the `toString()` method to the console.
+  - (10%) Implement the `Account` class.  Prove that your class is correct by instantiating an `Account` object in your project `start()` method and outputting the result of the `toString()` method to the console.
