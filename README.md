@@ -11,6 +11,8 @@ The `Account` class stores the data for one budget category.  This class impleme
 
 ![Account UML Diagram](img/accountUML.png)
 
+#### Account Class Grading
+
   - (10%) Implement the `Account` class.  Prove that your class is correct by instantiating an `Account` object in your project `start()` method and outputting the result of the `toString()` method to the console.
 
 ### Budget Class
@@ -22,6 +24,8 @@ The `Budget` class aggregates a collection of `Account` objects.  It also includ
 #### Input File Format
 
 ![Input File Format](img/inputFile.png)
+
+#### Budget Class Grading
 
   - (25%) Implement all the `Budget` class except for the `readBudget(fname : String)` method.  Update your `start()` method to create 5 different `Account`s and add them to a `Budget` object. Call the `toString()` method  to return the contents of the `Budget` and display on the console.
   - (15%) Implement the  `readBudget(fname : String)` method.  Modify the `start()` method so that it populates the `Budget` object using an input file.  Call the `toString()` method  to return the contents of the `Budget` object and  display on the console.
@@ -49,4 +53,53 @@ accountInfo.setFont(Font.font("verdana", FontWeight.NORMAL, FontPosture.REGULAR,
 - Use (5,15) as the coordinates of your `Rectangle` top-left corner.
 - The `height` of your `Rectangle` should be 30 pixels, the `width` is calculated by taking `amount`/`total` and multiplying it by the `paneWidth`.
 
+#### AccountPane Class Grading
+
   - (20%) Implement the `AccountPane` class.  Test your class by creating and displaying an `AccountPane` on your `stage` using the constructor parameters: `“Rent”, 2500.00, 850.00, Color.BLUE`.  Your `Scene` parameters should have a `width` of at least 500 pixels.
+
+### BudgetPane
+
+This extended `GridPane` class displays an `AccountPane` for each `Account` object in the `Budget` object passed to constructor.  In this case, the `GridPane` will have a single column and `budget.getNumAccounts()` number of rows.  This class will use the `budget.getAccount()` method to iterate the `accounts` `ArrayList` to create and add an `AccountPane` for each `Account` in the `Budget` to the `BudgetPane`/`GridPane`.  Each `AccountPane` will have a different color by using the provided `generateColor()` method.
+
+```
+private Paint generateColor() {
+        Random rand = new Random();
+        return Color.rgb(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
+}
+```
+
+![BudgetPane UML](img/budgetPaneUML.png)
+
+#### Sample BudgetPane
+
+![BudgetPane Sample](img/budgetPane.png)
+
+#### Hint
+
+- Your `Scene` width should be dynamic based on the number of `Account`s that are in the `Budget`.  I had success by multiplying the number of `Account`s by 60.
+
+#### BudgetPane Grading
+
+  - (20%) Implement the BudgetPane class.  Your start method should create a Budget object and populate it with the given input file.  The Budget object should be sent to the BudgetPane constructor to create your bargraph.  Display the BudgetPane on your stage.
+
+### MainPane
+
+The `MainPane` class  is an extend `BorderPane` and has the `description` (plus the `totalExpenses`)  in the `Top` zone, a `BudgetPane` in the `Center` zone and an `Exit` button in the `Bottom` zone.
+
+#### Hint
+
+You will have to increase the height of your `Scene` to accommodate your `Top` and `Bottom` zones of the `MainPane`.
+
+#### MainPane Grading
+
+  - (10%) Implement the `MainPane` class.  Your `start()` method should now instantiate an instance of `MainPane` and display it as the GUI of your `Application`.  Use command line arguments to pass the filename (“budget.txt”) to your `MainPane` constructor.
+
+
+### Grading Summary
+
+  - (10%) Implement the `Account` class.  Prove that your class is correct by instantiating an `Account` object in your project `start()` method and outputting the result of the `toString()` method to the console.
+  - (25%) Implement all the `Budget` class except for the `readBudget(fname : String)` method.  Update your `start()` method to create 5 different `Account`s and add them to a `Budget` object. Call the `toString()` method  to return the contents of the `Budget` and display on the console.
+  - (15%) Implement the  `readBudget(fname : String)` method.  Modify the `start()` method so that it populates the `Budget` object using an input file.  Call the `toString()` method  to return the contents of the `Budget` object and  display on the console.
+  - (20%) Implement the `AccountPane` class.  Test your class by creating and displaying an `AccountPane` on your `stage` using the constructor parameters: `“Rent”, 2500.00, 850.00, Color.BLUE`.  Your `Scene` parameters should have a `width` of at least 500 pixels.
+  - (20%) Implement the BudgetPane class.  Your start method should create a Budget object and populate it with the given input file.  The Budget object should be sent to the BudgetPane constructor to create your bargraph.  Display the BudgetPane on your stage.
+  - (10%) Implement the `MainPane` class.  Your `start()` method should now instantiate an instance of `MainPane` and display it as the GUI of your `Application`.  Use command line arguments to pass the filename (“budget.txt”) to your `MainPane` constructor.
