@@ -1,0 +1,12 @@
+Russell Brown's Budget
+002#Housing#1863.89
+010#Transportation#489.33
+020F#Medical#63.67
+030#Household/Personal#625.00
+040#Insurance#203.67
+ENT20#Entertainment#420.33
+001#Charity#670.00
+034#Taxes#1125.50
+0056#Savings#100
+009#Investments#200.00
+0012#Debts# 344.36
